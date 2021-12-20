@@ -6,7 +6,6 @@ import { networkRequestError, weatherData } from '@/types'
 defineProps<{ msg: string }>()
 
 const forecast = ref<weatherData[]>()
-
 async function getForecast() {
   const value = await weatherService.getWeather()
   if (!(value instanceof networkRequestError)) {
@@ -15,7 +14,6 @@ async function getForecast() {
     console.error(value.message)
   }
 }
-
 </script>
 
 <template>
