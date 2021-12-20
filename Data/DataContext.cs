@@ -4,6 +4,10 @@ namespace Data;
 
 public class DataContext
 {
+    private static readonly string[] Cities = new[]
+    {
+        "Pori", "Tampere", "Helsinki", "Lappeenranta", "Vaasa"
+    };
     private readonly List<Invoice> _invoices;
     public DataContext()
     {
@@ -17,4 +21,11 @@ public class DataContext
         };
     }
     public List<Invoice> Invoices => _invoices;
+    public List<WeatherForecast> Weather => Enumerable.Range(1, 5)
+    .Select(index => new WeatherForecast
+        {
+            Date = DateTime.Now.AddDays(index),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            City = Cities[index -1]
+        }).ToList();
 }

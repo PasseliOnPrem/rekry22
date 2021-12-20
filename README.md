@@ -1,30 +1,34 @@
 # Rekrytehtävä
 
 ## Vaatimukset
-
 - VS Code sopivilla plugareilla(C#, Volar jne), voi käyttää myös muuta editoria/ympäristöä
 - .NET SDK 6.x
 - Node.js LTS versio
 
 ## Setup
-
 - VS code huolehtii launch.json ja tasks.json luonnista
 - ClientApp kansiossa suorita `npm ci`
 
-## Huomioitavaa
+## Komentoriviltä käyttö
+- Päähakemistossa `dotnet build rekry.csproj`
+- Käyntiin komennolla `dotnet run`
+- Siirry sivulle `https://localhost:7033` ja se ohjaa oikeaan paikkaan
 
+## Huomioitavaa
 - Varmista että portit ohjataa oikein järjestelmässäsi ja muuta tarvittaessa
-- Vite env-muuttujat eivät toimi(BASE_URL jne.)
+- Vite env-muuttujat eivät toimi(BASE_URL jne. Iso plussa jos tämän saa korjattua)
+- Apin heittäessä hallitsemattoman poikkeuksen, CORS:a ei hallita oikein(ei tule headeria `Access-Control-Allow-Origin`)
 
 ## Sovelluksen rakenne
-Backend muodostuu seuraavista osista:
+### Backend muodostuu seuraavista osista:
 - Controllers, kontrollerit
 - Data, sisältää liittymät dataan
+- Dto, Data transfer objektit, joita käytetään Api:ssa
 - Entity, Datan POCO:t
 - Services, Ohjelmalogiikan yksiköt
 - Program.cs on käynnistyspiste
 
-Frontti hakemistossa ClientApp/src:
+### Frontti hakemistossa ClientApp/src:
 - components, sisältää sivujen fragmentit
 - router, sivujen reititys
 - services, tiedon haku apista
@@ -32,11 +36,16 @@ Frontti hakemistossa ClientApp/src:
 - types.ts, sisältää käytetyt tyypit
 
 ## Tehtävälista
-1. Sääennusteen kuvaus ei vastaa lämpötilaa, muuta kuvaukset vastaamaan lämpötiloja oman harkinnan mukaan
-2. Tee kontrolleri invoices ja siihen a) rajapinta, joka palauttaa laskun id:llä sekä b) kaikki laskut mahdollisuudella rajata onko lasku maksettu(Sum = 0) tai asiakkan nimellä
+1. Sääennusteen kuvaus ei vastaa lämpötilaa. Muuta kuvaukset vastaamaan lämpötiloja oman harkinnan mukaan
+2. Tee kontrolleri invoices ja siihen a) rajapinta, joka palauttaa laskun id:llä sekä b) kaikki laskut mahdollisuudella rajata onko lasku maksettu(Sum = 0) ja/tai asiakkan nimellä
 3. Lisää invoices -kontrolleriin PATCH-metodi, joka maksaa laskun
 4. Luo sivu, joka näyttää laskut(ja sen tiedot) ja yksittäistä laskua klikkaamalla voi avata yhden laskun, lisää myös linkki pääsivulta laskulistaukseen. Yksittäisen laskun tarkastelussa voit myös maksaa laskun.
-5. Data-kerros on tällä hetkellä käytettynä suoraan, suunnittele/toteuta oma visiosi siitä miten datakerros olisi järkevää abstraktoida. Toisin sanoen, miten eristäisit datakerroksen logiikasta.
+5. Datakerros on tällä hetkellä käytettynä suoraan(DataContext). Suunnittele/toteuta oma visiosi siitä miten datakerros olisi järkevää abstraktoida. Toisin sanoen, miten eristäisit datakerroksen logiikasta. Oikeassa tilanteessa DataContext-luokkaa vastaisi esimerkiksi entity frameworkin DBContext.
+
+Koodia voi ja kannattaa kommentoida merkittäviltä osiltaan.
+
+## Palautus
+Lisää omaan githubiin repo ja kutsu käyttäjät `WaldoPas` ja `JaniPelttari` siihen
 
 ## Vue ja Viten alkuperäinen ohjeistus
 

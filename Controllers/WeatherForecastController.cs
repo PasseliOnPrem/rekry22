@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Entity;
+using Data;
+using Dto;
 
 namespace rekry.Controllers;
 
@@ -12,28 +14,24 @@ public class WeatherForecastController : ControllerBase
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    private static readonly string[] Cities = new[]
-    {
-        "Pori", "Tampere", "Helsinki", "Lappeenranta", "Vaasa"
-    };
-
     private readonly ILogger<WeatherForecastController> _logger;
+    private readonly DataContext _dataContext;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, DataContext dataContext)
     {
         _logger = logger;
+        _dataContext = dataContext;
     }
 
     [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
+    public IEnumerable<WeatherForecastDto> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            City = Cities[index -1],
+        return _dataContext.Weather.Select(x => new WeatherForecastDto() {
+            Date = x.Date,
+            TemperatureC = x.TemperatureC,
+            TemperatureF = x.TemperatureF,
+            City = x.City,
             Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        });
     }
 }
