@@ -3,6 +3,18 @@ using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+                          builder =>
+                          {
+                              builder.WithOrigins("https://localhost:5002",
+                                                  "https://localhost:7033")
+                                                  .AllowAnyHeader()
+                                                  .AllowAnyMethod();
+                          });
+});
+
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
@@ -27,6 +39,8 @@ app.Use(async (context, next) =>
     context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
     await next();
 });
+
+app.UseCors();
 
 app.MapControllerRoute(
     name: "default",
