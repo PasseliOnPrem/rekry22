@@ -1,5 +1,12 @@
 # Rekrytehtävä
 
+## Suoritus
+- Luo uusi repo käyttämällä tätä repoa mallina
+- Lataa oma repo koneellesi ja tee tehtävät
+- Kommitoi tehdyt muutokset ja puske ne githubiin
+- Anna lukuoikeudet repoon `WaldoPas` ja `JaniPelttari` käyttäjille, jotta pääsemme tutustumaan tuotokseen
+- Laita vielä mailia perään, että tehtävä on nyt valmis 
+
 ## Vaatimukset
 - VS Code sopivilla plugareilla(C#, Volar jne), voi käyttää myös muuta editoria/ympäristöä
 - .NET SDK 6.x
@@ -45,7 +52,7 @@
 Koodia voi ja kannattaa kommentoida merkittäviltä osiltaan.
 
 ## Palautus
-Lisää omaan githubiin repo ja kutsu käyttäjät `WaldoPas` ja `JaniPelttari` siihen
+Lisää omaan githubiin repo käyttämällä tätä mallina ja kutsu käyttäjät `WaldoPas` ja `JaniPelttari` siihen
 
 ## Vue ja Viten alkuperäinen ohjeistus
 
