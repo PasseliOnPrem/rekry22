@@ -3,9 +3,12 @@
 ## Suoritus
 - Luo uusi repo käyttämällä tätä repoa mallina
 - Lataa oma repo koneellesi ja tee tehtävät
+- Luo jokaisesta tehtävästä oma branchi ja jatka seuraavaan tehtävään aiemman tehtävän branchista
 - Kommitoi tehdyt muutokset ja puske ne githubiin
 - Anna lukuoikeudet repoon `WaldoPas` ja `JaniPelttari` käyttäjille, jotta pääsemme tutustumaan tuotokseen
 - Laita vielä mailia perään, että tehtävä on nyt valmis 
+- Kerro jokaisen tehtävän kohdalla tässä tiedostossa työvaiheista, mahdollisista ongelmista ja niiden ratkaisuista
+- Kerro myös mitä työkaluja käytit. Esim. VS Code,Visual Studio, Rider, Vi ;) Mikäli hyödynsit koodin täydennystyökaluja, kerro myös niistä
 
 ## Vaatimukset
 - VS Code sopivilla plugareilla(C#, Volar jne), voi käyttää myös muuta editoria/ympäristöä
@@ -47,12 +50,13 @@
 2. Tee kontrolleri invoices ja siihen a) rajapinta, joka palauttaa laskun id:llä sekä b) kaikki laskut mahdollisuudella rajata onko lasku maksettu(Sum = 0) ja/tai asiakkan nimellä
 3. Lisää invoices -kontrolleriin PATCH-metodi, joka maksaa laskun
 4. Luo sivu, joka näyttää laskut(ja sen tiedot) ja yksittäistä laskua klikkaamalla voi avata yhden laskun, lisää myös linkki pääsivulta laskulistaukseen. Yksittäisen laskun tarkastelussa voit myös maksaa laskun.
-5. Datakerros on tällä hetkellä käytettynä suoraan(DataContext). Suunnittele/toteuta oma visiosi siitä miten datakerros olisi järkevää abstraktoida. Toisin sanoen, miten eristäisit datakerroksen logiikasta. Oikeassa tilanteessa DataContext-luokkaa vastaisi esimerkiksi entity frameworkin DBContext.
+5. Hae säätiedot oikeasta palvellusta([OpenWeather](https://openweathermap.org/api/one-call-3)). Tarkoitus on luoda oma palvelu, joka osaa hakea annetun kaupungin nimellä tiedon. Ethän laita omaa api-avainta kommitin mukana!
+6. Datakerros on tällä hetkellä käytettynä suoraan(DataContext). Suunnittele/toteuta oma visiosi siitä miten datakerros olisi järkevää abstraktoida. Toisin sanoen, miten eristäisit datakerroksen logiikasta. Oikeassa tilanteessa DataContext-luokkaa vastaisi esimerkiksi entity frameworkin DBContext.
 
 Koodia voi ja kannattaa kommentoida merkittäviltä osiltaan.
 
 ## Palautus
-Lisää omaan githubiin repo käyttämällä tätä mallina ja kutsu käyttäjät `WaldoPas` ja `JaniPelttari` siihen
+Lisää omaan githubiin repo käyttämällä tätä mallina ja kutsu käyttäjät [`WaldoPas`](https://github.com/waldopas) ja [`JaniPelttari`](https://github.com/janipelttari) siihen
 
 ## Vue ja Viten alkuperäinen ohjeistus
 
